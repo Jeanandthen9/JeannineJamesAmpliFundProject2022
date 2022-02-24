@@ -1,0 +1,20 @@
+﻿@model CarViewModel
+@{
+}
+
+<h2>Remove A Car!</h2>
+
+@Html.HiddenFor(m => m.Id)
+<div class=container>
+    <div class=row>
+        <div class="col-12">
+            <div class=row>
+                <div class="col-5">Are you sure you wish to delete the car with ID of @Model.Id ?</div>
+                <div class="col-7">
+                    <button class="btn btn-success" id="confirmRemoveCar" onclick="submitDeleteCar(@Model.Id)" data-url='@Url.Action("DeleteCarConfirm", "CarShowcase")'>Yes!</button>
+                    <button class="btn btn-danger" id="denyRemoveCar" onclick="showModal()">No!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

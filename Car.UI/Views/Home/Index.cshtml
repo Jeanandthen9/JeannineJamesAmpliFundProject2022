@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Hey there!!</h1>
+    <p>Let me show you my cars!</p>
+    <img src="https://c.tenor.com/KbRhbZNL168AAAAC/toy-car-crash.gif" />
+        <br />
+        <br/>
+    @Html.ActionLink("YEAH SURE! :D", "Index", "CarShowcase", null, new { @class = "btn btn-info" }) <button class="btn btn-info" id="noButton" onclick="showModal()">no thanks :/</button>
+</div>
+
+
+<script src="~/js/home.js"></script>

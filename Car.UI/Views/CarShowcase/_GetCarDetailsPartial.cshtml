@@ -1,0 +1,26 @@
+﻿@model CarViewModel
+@{
+}
+
+<h2>Car Details!</h2>
+
+<div class=container>
+    <div class=row>
+        <div class="col-4">
+            <div class="col-6"><b>ID:</b> @Model.Id</div>
+            <div class="col-6"><b>YEAR:</b> @Model.Year</div>
+        </div>
+
+        <div class="col-4">
+            <div class="col-6"><b>NAME:</b> @Model.Name</div>
+            <div class="col-6"><b>COLOR:</b> @Model.Color.ToString()</div>
+        </div>
+
+        <div class="col-4">
+            <div class="col-12"><b>CONVERTABLE?:</b> @(Model.IsConvertable?"YES":"NO") </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12"><b>DESCRIPTION:</b> @Model.Description</div>
+    </div>
+</div>

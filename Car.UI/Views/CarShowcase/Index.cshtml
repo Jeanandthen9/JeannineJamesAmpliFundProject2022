@@ -1,0 +1,73 @@
+﻿@model List<CarViewModel>
+@{
+}
+<div class="row">
+    <div class="col-3">
+        <h1>GET A LOAD OF THESE CARS!!</h1>
+    </div>
+    <div class="col-9">
+        <img src="https://c.tenor.com/EHR3JKmvBVcAAAAM/car-flying-car.gif" />
+    </div>
+</div>
+<button class="btn btn-info" onclick="showCreateCarSection()"><i class="fa-solid fa-square-plus"></i> Add A Car!</button>
+<table class="table table-bordered" id="carShowcaseTable">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Year</th>
+      <th scope="col">Color</th>
+      <th scope="col">Convertable?</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  @foreach(var car in Model)
+  {
+      <tr>
+          <td>@car.Id</td>
+          <td>@car.Name</td>
+          <td>@car.Year</td>
+          <td>@car.Color.ToString()</td>
+          <td>@(car.IsConvertable?"YES":"NO")
+                    @if (car.IsConvertable)
+                    {
+                        <i class="fa-solid fa-check" style="color:green"></i>
+                    }
+                    else
+                    {
+                        <i class="fa-solid fa-x" style="color:red"></i>
+                    }
+
+          </td>
+          <td>
+              <button><i class="fa-solid fa-pen" title="Edit!" onclick="showEditCarSection(@car.Id)"></i></button><button><i class="fa-solid fa-circle-exclamation" title="Details!" onclick="showDetailsCarSection(@car.Id)"></i></button><button><i class="fa-solid fa-trash" title="Delete!" onclick="showDeleteCarSection(@car.Id)"></i></button>
+          </td>
+      </tr>
+  }
+  </tbody>
+</table>
+
+@*-- CREATE CAR SECTION --*@
+<div class="border" id="createCarSection" style="display:none" data-url='@Url.Action("CreateCar", "CarShowcase")'>
+  <div id='createCarContainer'>
+  </div>
+</div>
+
+@*-- CAR DETAILS SECTION --*@
+<div class="border" id="detailsCarSection" style="display:none" data-url='@Url.Action("GetCarDetails", "CarShowcase")'>
+  <div id='detailsCarContainer'>
+  </div>
+</div>
+
+@*-- EDIT CAR SECTION --*@
+<div class="border" id="editCarSection" style="display:none" data-url='@Url.Action("EditCar", "CarShowcase")'>
+  <div id='editCarContainer'>
+  </div>
+</div>
+
+@*-- DELETE CAR SECTION --*@
+<div class="border" id="deleteCarSection" style="display:none" data-url='@Url.Action("DeleteCar", "CarShowcase")'>
+  <div id='deleteCarContainer'>
+  </div>
+</div>

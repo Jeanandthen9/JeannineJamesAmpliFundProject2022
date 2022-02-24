@@ -1,0 +1,27 @@
+﻿@model Car.UI.Models.ModalViewModel
+@{
+    
+}
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitle">@Model.Title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="hideModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="modalBodyText">
+          @Model.BodyText
+          <br />
+            @if (Model.ShowVideo)
+            {
+             <center>
+                 <iframe id="bigBillHell" width="450" height="315" src="https://www.youtube.com/embed/fOw0OzD6PXY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>   
+            </center>
+            }
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="hideModal()">Close</button>
+      </div>
+    </div>
+  </div>
